@@ -5,12 +5,13 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.3.2'
     }
 }
 
 allprojects {
     repositories {
+        google()
         jcenter()
     }
 }
@@ -19,7 +20,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.3"
 
     lintOptions {
         abortOnError false
@@ -40,6 +40,11 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 26
+    }
     dependencies {
+        implementation 'org.tensorflow:tensorflow-android:1.2.0-preview'
     }
 }
